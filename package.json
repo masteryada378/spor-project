@@ -9,7 +9,9 @@
     "dev:frontend": "cd frontend/my-app && vite",
     "lint": "eslint . --fix"
   },
-  "dependencies": {},
+  "dependencies": {
+    "superagent": "^9.0.0"
+  },
   "devDependencies": {
     "concurrently": "^8.0.0",
     "eslint": "^9.17.0"

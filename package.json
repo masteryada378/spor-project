@@ -1,19 +1,21 @@
 {
   "name": "spor-project",
   "version": "1.0.0",
-  "description": "Petomic",
-  "main": "webpack.config.js",
+  "description": "Betting platform",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/server.js",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "nodemon backend/server.js",
+    "dev:frontend": "cd frontend/my-app && vite",
+    "lint": "eslint . --fix"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "web-vitals": "^2.1.4"
-  }
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^8.0.0",
+    "eslint": "^9.17.0"
+  },
+  "workspaces": [
+    "frontend/my-app",
+    "backend"
+  ]
 }

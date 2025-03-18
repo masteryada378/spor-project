@@ -1,0 +1,20 @@
+version: "3" # видаліть цю версію, якщо з'являються попередження про застарілість
+
+services:
+    backend:
+        build:
+            context: ./backend # перевірте, що це коректний відносний шлях до папки backend
+            dockerfile: Dockerfile.backend
+        ports:
+            - "3000:3000"
+        environment:
+            - NODE_ENV=development
+
+    frontend:
+        build:
+            context: ./frontend # перевірте, що це коректний відносний шлях до папки frontend
+            dockerfile: Dockerfile.frontend
+        ports:
+            - "3001:3000"
+        environment:
+            - NODE_ENV=development

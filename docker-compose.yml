@@ -1,20 +1,37 @@
-version: "3" # видаліть цю версію, якщо з'являються попередження про застарілість
+version: '3.8'
 
 services:
-    backend:
-        build:
-            context: ./backend # перевірте, що це коректний відносний шлях до папки backend
-            dockerfile: Dockerfile.backend
-        ports:
-            - "3000:3000"
-        environment:
-            - NODE_ENV=development
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: spor_proj
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
-    frontend:
-        build:
-            context: ./frontend # перевірте, що це коректний відносний шлях до папки frontend
-            dockerfile: Dockerfile.frontend
-        ports:
-            - "3001:3000"
-        environment:
-            - NODE_ENV=development
+volumes:
+  postgres_data:
+# version: "3" # видаліть цю версію, якщо з'являються попередження про застарілість
+
+# services:
+#     backend:
+#         build:
+#             context: ./backend # перевірте, що це коректний відносний шлях до папки backend
+#             dockerfile: Dockerfile.backend
+#         ports:
+#             - "3000:3000"
+#         environment:
+#             - NODE_ENV=development
+
+#     frontend:
+#         build:
+#             context: ./frontend # перевірте, що це коректний відносний шлях до папки frontend
+#             dockerfile: Dockerfile.frontend
+#         ports:
+#             - "3001:3000"
+#         environment:
+#             - NODE_ENV=development

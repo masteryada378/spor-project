@@ -28,7 +28,9 @@ const CardForm: React.FC = () => {
         onChange={(e) => setDescription(e.target.value)}
         required
       />
-      <button type="submit">Створити картку</button>
+      <button className="card-btn" type="submit">
+        Створити
+      </button>
     </form>
   );
 };

@@ -18,13 +18,17 @@ const CardsPage: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Картки</h1>
-      <button onClick={() => navigate('/create')}>Додати картку</button>
-      <div className="card-list">
-        {cards.map((card) => (
-          <Card key={card.id} title={card.title} description={card.description} />
-        ))}
+    <div className="wrapper-card">
+      <div className="card-box--head">Totalizator</div>
+      <div className="card-box">
+        <button className="card-btn" onClick={() => navigate('/create')}>
+          Додати суперечку
+        </button>
+        <div className="card-list">
+          {cards.map((card) => (
+            <Card key={card.id} title={card.title} description={card.description} />
+          ))}
+        </div>
       </div>
     </div>
   );

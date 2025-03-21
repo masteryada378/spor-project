@@ -21,3 +21,7 @@ app.listen(PORT, async () => {
   await connectDB();
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+app.get('/', (_req, res) => {
+  res.send('API is running...');
+});

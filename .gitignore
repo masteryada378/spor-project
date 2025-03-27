@@ -4,3 +4,5 @@ node_modules/
 dist/
 build/
 docker-volume/
+.eslintrc.json
+.eslintignore

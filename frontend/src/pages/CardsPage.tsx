@@ -18,18 +18,32 @@ const CardsPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="wrapper-card">
-      <div className="card-box--head">Totalizator</div>
-      <div className="card-box">
-        <button className="card-btn" onClick={() => navigate('/create')}>
+    <div className="wrapper">
+      <div className="head">
+        Totalizator{' '}
+        <button className="btn" onClick={() => navigate('/create')}>
           Додати суперечку
         </button>
-        <div className="card-list">
-          {cards.map((card) => (
-            <Card key={card.id} title={card.title} description={card.description} />
-          ))}
-        </div>
       </div>
+      <div className="content">
+        <div className="filter">
+          <ul>
+            <li>sport</li>
+            <li>history</li>
+            <li>star</li>
+            <li>friend</li>
+          </ul>
+        </div>
+        <div className="card-box">
+          <div className="card-list">
+            {cards.map((card) => (
+              <Card key={card.id} title={card.title} description={card.description} />
+            ))}
+          </div>
+        </div>
+        <div className="infoCard">card INFO</div>
+      </div>
+      <footer className="footer">згідно з усім</footer>
     </div>
   );
 };

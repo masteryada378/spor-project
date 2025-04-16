@@ -1,5 +1,14 @@
 import winston from 'winston';
 
+// Розширюємо інтерфейс Logger
+declare module 'winston' {
+  interface Logger {
+    writeStream: {
+      write(message: string): void;
+    };
+  }
+}
+
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.combine(
@@ -11,8 +20,8 @@ const logger = winston.createLogger({
   transports: [new winston.transports.Console()],
 });
 
-logger.stream = {
-  write: (message) => logger.info(message.trim()),
+logger.writeStream = {
+  write: (message: string) => logger.info(message.trim()),
 };
 
 export { logger };

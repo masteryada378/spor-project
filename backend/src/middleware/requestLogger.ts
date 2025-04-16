@@ -1,9 +1,9 @@
 import morgan from 'morgan';
 import { logger } from '../config/logger.js';
-
+// TODO remove
 const requestLogger = morgan('tiny', {
   stream: {
-    write: (message) => logger.info(message.trim()),
+    write: (message: string) => logger.info(message.trim()),
   },
 });
 
